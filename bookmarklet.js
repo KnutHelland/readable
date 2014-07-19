@@ -27,7 +27,7 @@
 		crossDomain: true,
 		success: function (data) {
 		    document.open();
-		    document.write("<html><head><style>body { background-color: black; font-size: 14em; -ms-hyphens: auto; hyphens: auto; font-weight: bold; font-family: Verdana; width: 100%; color: yellow; line-height: 1.2em; } p { margin-bottom: 0.5em; line-height: 1.2em; -ms-hyphens: auto; hyphens: auto; } a { color: yellow; text-decoration: underline; } img { display: none }</style></head><body>"+data.content+"</body><script type='text/javascript' src='http://www.knuthelland.com/reader.js?"+Math.random()+"'></script></html>");
+		    document.write("<html><head><style>body { background-color: black; font-size: 14em; -ms-hyphens: auto; hyphens: auto; font-weight: bold; font-family: Verdana; width: 100%; color: yellow; line-height: 1.2em; } p { margin-bottom: 0.5em; line-height: 1.2em; -ms-hyphens: auto; hyphens: auto; } a { color: yellow; text-decoration: underline; } img { display: none }</style></head><body>"+data.content+"</body><script type='text/javascript' src='http://knuthelland.github.io/readable/reader.js?"+Math.random()+"'></script></html>");
 		    document.close();
 		}
 	    });
