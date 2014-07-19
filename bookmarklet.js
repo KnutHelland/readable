@@ -17,21 +17,6 @@
     } else {
 	initMyBookmarklet();
     }
-
-    // function getInnerText(el) {
-    // 	var sel, range, innerText = "";
-    // 	if (typeof document.selection != "undefined" && typeof document.body.createTextRange != "undefined") {
-    //         range = document.body.createTextRange();
-    //         range.moveToElementText(el);
-    //         innerText = range.text;
-    // 	} else if (typeof window.getSelection != "undefined" && typeof document.createRange != "undefined") {
-    //         sel = window.getSelection();
-    //         sel.selectAllChildren(el);
-    //         innerText = "" + sel;
-    //         sel.removeAllRanges();
-    // 	}
-    // 	return innerText;
-    // }
     
     function initMyBookmarklet() {
 	(window.myBookmarklet = function() {
@@ -41,50 +26,9 @@
 		type: "get",
 		crossDomain: true,
 		success: function (data) {
-		    // var divId = "clip" + Math.round((Math.random()*1000000));
-		    // var div = jQuery("<div id='"+divId+"'></div>");
-		    // div.append(jQuery(data.content));
-		    // jQuery("body").append(div);
-		    // var text = getInnerText(document.getElementById(divId));
-		    // alert(text);
-		    // window.clipboardData.setData("text", data.content.replace(/<(?:.|\n)*?>/gm, ''));
-
-		    var speed = 0;
-
-		    window.myFunc = function() {
-			alert("Mufunc");
-			$(document).keydown(function(e){
-			    alert("keydown");
-			    if (e.keyCode == 38) { 
-				// up
-				speed -= 1;
-				return false;
-			    } else if (e.keyCode == 40) {
-				// down
-				speed += 1;
-				return false;
-			    } else if (e.keyCode == 13) {
-				// enter
-				speed = 0;
-				return false;
-			    } else if (e.keyCode == 27) {
-				// escape
-				location.reload();
-				return false;
-			    }
-			});
-		    }
-
 		    document.open();
-		    document.write("<html><head><style>body { background-color: black; font-size: 14em; -ms-hyphens: auto; hyphens: auto; font-weight: bold; font-family: Verdana; width: 100%; color: yellow; line-height: 1.2em; } p { margin-bottom: 0.5em; line-height: 1.2em; -ms-hyphens: auto; hyphens: auto; } a { color: yellow; text-decoration: underline; } img { display: none }</style></head><body onload='myFunc()'>"+data.content+"</body><script type='text/javascript'>alert('New page');</script></html>");
-
-		    // jQuery("head").append("<style>body { background-color: black; font-size: 100em; -ms-hyphens: auto; hyphens: auto; font-weight: bold; font-family: Verdana; width: 100%; word-break: break-all; color: yellow; line-height: 1.2em; } p { margin-bottom: 0.5em; line-height: 1.2em; -ms-hyphens: auto; hyphens: auto; } a { color: yellow; text-decoration: underline; } img { display: none }</style>");
-		    // jQuery("body").html(data.content);
+		    document.write("<html><head><style>body { background-color: black; font-size: 14em; -ms-hyphens: auto; hyphens: auto; font-weight: bold; font-family: Verdana; width: 100%; color: yellow; line-height: 1.2em; } p { margin-bottom: 0.5em; line-height: 1.2em; -ms-hyphens: auto; hyphens: auto; } a { color: yellow; text-decoration: underline; } img { display: none }</style></head><body>"+data.content+"</body><script type='text/javascript' src='http://www.knuthelland.com/reader.js?"+Math.random()+"'></script></html>");
 		    document.close();
-
-		    window.setInterval(function() {
-			window.scrollBy(0, speed*2);
-		    }, 33);
 		}
 	    });
 	})();
